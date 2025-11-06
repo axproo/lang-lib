@@ -1,0 +1,52 @@
+<?php return array(
+    'root' => array(
+        'name' => 'axproo/lang-lib',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '8178ffac155c7fe5eb0acf8d9d13a4002ed50143',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'axproo/lang-lib' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '8178ffac155c7fe5eb0acf8d9d13a4002ed50143',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'codeigniter4/framework' => array(
+            'pretty_version' => 'v4.6.3',
+            'version' => '4.6.3.0',
+            'reference' => '68d1a5896106f869452dd369a690dd5bc75160fb',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../codeigniter4/framework',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'laminas/laminas-escaper' => array(
+            'pretty_version' => '2.19.x-dev',
+            'version' => '2.19.9999999.9999999-dev',
+            'reference' => 'dcd124a75c4b890955ac328306c5562a34b36d9e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-escaper',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'psr/log' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'f16e1d5863e37f8d8c2a01719f5b34baa2b714d3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/log',
+            'aliases' => array(
+                0 => '3.x-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+    ),
+);
