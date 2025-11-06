@@ -21,10 +21,10 @@
     "minimum-stability": "stable",
     "scripts": {
         "post-install-cmd": [
-            "php install.php"
+            "Axproo\\LangLib\\Installer::install"
         ],
         "post-update-cmd": [
-            "php install.php"
+            "Axproo\\LangLib\\Installer::install"
         ]
     },
     "prefer-stable": true
