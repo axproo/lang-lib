@@ -1,5 +1,6 @@
 {
     "name": "axproo/lang-lib",
+    "version": "1.0.1",
     "description": "Bibliothèque de gestion des langues multilingue pour CI4",
     "type": "library",
     "require": {
@@ -18,5 +19,14 @@
             "email": "developper@axproo.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "scripts": {
+        "post-install-cmd": [
+            "php install.php"
+        ],
+        "post-update-cmd": [
+            "php install.php"
+        ]
+    },
+    "prefer-stable": true
 }
