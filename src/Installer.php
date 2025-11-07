@@ -11,8 +11,7 @@ class Installer
         $source = __DIR__ . '/Language';
 
         // Détection du projet principal à partir du vendor
-        $vendorDir = getenv('COMPOSER_VENDOR_DIR') ?: 'vendor';
-        $baseDir = dirname(realpath($vendorDir));
+        $baseDir = dirname(__DIR__, 3);
         $destination = $baseDir . '/app/Language';
 
         echo "Source: $source\n";
