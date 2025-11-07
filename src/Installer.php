@@ -5,10 +5,18 @@ class Installer
 {
     public static function install(): void
     {
-        $source = __DIR__ . '/Language';
-        $destination = getcwd() . '/app/Language';
-
         echo "Installing Axproo Language Library...\n";
+
+        // Le dossier Language du package
+        $source = __DIR__ . '/Language';
+
+        // Détection du projet principal à partir du vendor
+        $vendorDir = getenv('COMPOSER_VENDOR_DIR') ?: 'vendor';
+        $baseDir = dirname(realpath($vendorDir));
+        $destination = $baseDir . '/app/Language';
+
+        echo "Source: $source\n";
+        echo "Destination: $destination\n";
 
         if (!is_dir($source)) {
             echo "Source folder not found: $source\n";
