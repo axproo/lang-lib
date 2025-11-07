@@ -1,8 +1,8 @@
 {
     "name": "axproo/lang-lib",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "description": "Bibliothèque de gestion des langues multilingue pour CI4",
-    "type": "library",
+    "type": "composer-plugin",
     "require": {
         "php": "^8.1",
         "codeigniter4/framework": "^4.5"
@@ -20,6 +20,9 @@
         }
     ],
     "minimum-stability": "stable",
+    "extra": {
+        "class": "Axproo\\LangLib\\Plugin"
+    },
     "scripts": {
         "post-install-cmd": [
             "Axproo\\LangLib\\Installer::install"
@@ -28,5 +31,8 @@
             "Axproo\\LangLib\\Installer::install"
         ]
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "composer/composer": "^2.7"
+    }
 }

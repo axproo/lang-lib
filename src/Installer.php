@@ -1,56 +1,77 @@
-<?php 
+<?php
+
 namespace Axproo\LangLib;
+
+use Composer\IO\IOInterface;
+use Composer\Script\Event;
+use Composer\Installer\PackageEvent;
 
 class Installer
 {
-    public static function install(): void
+    /**
+     * Installation automatique du répertoire de langues
+     *
+     * @param Event|PackageEvent|null $event
+     */
+    public static function install($event = null)
     {
-        echo "Installing Axproo Language Library...\n";
-
-        // Le dossier Language du package
-        $source = __DIR__ . '/Language';
-
-        // Détection du projet principal à partir du vendor
-        $baseDir = dirname(__DIR__, 4);
-        $destination = $baseDir . '/app/Language';
-
-        echo "Source: $source\n";
-        echo "Destination: $destination\n";
-
-        if (!is_dir($source)) {
-            echo "Source folder not found: $source\n";
-            exit(1);
+        // Gestion de l'interface IO
+        $io = null;
+        if ($event instanceof Event || $event instanceof PackageEvent) {
+            $io = $event->getIO();
         }
 
-        if (!is_dir($destination)) {
-            mkdir($destination, 0755, true);
+        if ($io) {
+            $io->write("<info>Installing Axproo Language Library...</info>");
+        } else {
+            echo "Installing Axproo Language Library...\n";
         }
-        
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($source, \RecursiveDirectoryIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::SELF_FIRST
-        );
 
-        $baseLength = strlen($source) + 1;
+        // Détection des chemins
+        $rootDir = getcwd();
+        $vendorDir = $rootDir . '/vendor/axproo/lang-lib/src/Language';
+        $destDir = $rootDir . '/app/Language';
 
-        foreach ($iterator as $item) {
-            $relativePath = substr($item->getPathname(), $baseLength);
-            $targetPath = $destination . DIRECTORY_SEPARATOR . $relativePath;
-
-            if ($item->isDir()) {
-                if (!is_dir($targetPath)) {
-                    mkdir($targetPath, 0755, true);
-                }
+        if (!is_dir($vendorDir)) {
+            if ($io) {
+                $io->write("<error>Source folder not found: {$vendorDir}</error>");
             } else {
-                if (!file_exists($targetPath)) {
-                    copy($item->getPathname(), $targetPath);
-                    echo "Copied: $relativePath\n";
-                } else {
-                    echo "Skipped (exists): $relativePath\n";
-                }
+                echo "Source folder not found: {$vendorDir}\n";
+            }
+            return;
+        }
+
+        if (!is_dir($destDir)) {
+            mkdir($destDir, 0755, true);
+        }
+
+        self::copyRecursive($vendorDir, $destDir);
+
+        if ($io) {
+            $io->write("<info>Languages successfully installed in app/Language.</info>");
+        } else {
+            echo "Languages successfully installed in app/Language.\n";
+        }
+    }
+
+    private static function copyRecursive($src, $dest)
+    {
+        $dir = opendir($src);
+        @mkdir($dest, 0755, true);
+
+        while (($file = readdir($dir)) !== false) {
+            if ($file == '.' || $file == '..') continue;
+
+            $srcPath = "$src/$file";
+            $destPath = "$dest/$file";
+
+            if (is_dir($srcPath)) {
+                self::copyRecursive($srcPath, $destPath);
+            } else {
+                copy($srcPath, $destPath);
             }
         }
 
-        echo "Language files installed successfully in app/Language/\n\n";
+        closedir($dir);
     }
 }
