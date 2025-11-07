@@ -11,7 +11,7 @@ class Installer
         $source = __DIR__ . '/Language';
 
         // Détection du projet principal à partir du vendor
-        $baseDir = dirname(__DIR__, 3);
+        $baseDir = dirname(__DIR__, 4);
         $destination = $baseDir . '/app/Language';
 
         echo "Source: $source\n";
