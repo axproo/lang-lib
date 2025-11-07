@@ -5,7 +5,7 @@ class Installer
 {
     public static function install(): void
     {
-        $source = __DIR__ . '/src/Language';
+        $source = __DIR__ . '/Language';
         $destination = getcwd() . '/app/Language';
 
         echo "Installing Axproo Language Library...\n";
