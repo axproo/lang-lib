@@ -1,6 +1,6 @@
 {
     "name": "axproo/lang-lib",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Bibliothèque de gestion des langues multilingue pour CI4",
     "type": "composer-plugin",
     "require": {

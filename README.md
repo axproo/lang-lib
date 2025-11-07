@@ -8,7 +8,7 @@ Prend en charge plusieurs langues (anglais, français, espagnol) et le changemen
 - Gestion simple et légère des langues
 - Détection automatique de la langue de l'utilisateur
 - Changement dynamique de langue via l'URL
-- Fichiers de langue prêts à l'emploi (`App`, `Auth`, `Buttons`, `Messages`, `Errors`)
+- Fichiers de langue prêts à l'emploi (`App`, `Auth`, `Buttons`, `Message`, `Errors`)
 - Facilement réutilisable dans plusieurs projets CI4
 
 ## Installation
@@ -19,15 +19,9 @@ You can install the library via Composer:
 composer require axproo/lang-lib
 ```
 
-ou
-
-```bash
-git clone https://github.com/axproo/lang-lib.git app/Language
-```
-
 ## Usage (utilisation)
 
-Dans votre fichier app/Language, copier/coller les repertoire de langue (fr,en...)
+Les fichiers de langue sont automatiquement copié dans votre repertoire app/Language ex: (fr, en, es...)
 
 ## Contributing
 
