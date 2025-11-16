@@ -1,6 +1,6 @@
 {
     "name": "axproo/lang-lib",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "Bibliothèque de gestion des langues multilingue pour CI4",
     "type": "library",
     "require": {
