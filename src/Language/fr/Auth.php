@@ -1,6 +1,7 @@
 <?php 
 
 return [
+    'invalid_credential' => 'Identifiants non valides',
     'success' => [
         'login' => 'Connexion réussie',
         'logout' => 'Déconnexion réussie'

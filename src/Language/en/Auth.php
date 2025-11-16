@@ -1,6 +1,7 @@
 <?php 
 
 return [
+    'invalid_credential' => 'Invalid credentials',
     'success' => [
         'login' => 'Connection successful',
         'logout' => 'Successful logout'
