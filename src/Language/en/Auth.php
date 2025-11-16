@@ -20,10 +20,8 @@ return [
         'account' => [
             'verify' => ["redirect" => "/{key}"],
             'active' => 'Your account is already activated',
-            'inactivated' => 'Your account is inactive. Please contact the administrator.',
-            // 'inactivated' => 'Account suspended or blocked, please contact the administrator',
             'unknown' => 'Account status unknown {status}. Please contact support.',
-            'blocked' => 'Your account has been suspended or blocked. Please contact the administrator.'
+            
         ],
         'otp' => [
             'required' => 'Required code',

@@ -22,8 +22,7 @@ return [
             'active' => 'Votre compte est déjà activé',
             'inactivated' => 'Votre compte est inactif. Merci de contacter l’administrateur.',
             // 'inactivated' => 'Oups ! Votre compte est bloqué. Contactez l’administrateur pour résoudre le problème.',
-            'unknown' => 'Statut de compte inconnu {status}. Veuillez contacter le support.',
-            'blocked' => 'Votre compte est suspendu ou bloqué. Merci de contacter l’administrateur.'
+            'unknown' => 'Statut de compte inconnu {status}. Veuillez contacter le support.'
         ],
         'otp' => [
             'required' => 'Code obligatoire',
